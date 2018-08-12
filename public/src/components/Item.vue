@@ -27,7 +27,7 @@
           <md-icon>insert_chart_outlined</md-icon>
         </md-button>
         <md-button class="md-icon-button md-mini md-gutter">
-          {{ percentage }}
+          {{ item.rate }}%
         </md-button>
       </md-card-actions>
     </md-card>
@@ -41,12 +41,6 @@
     props: ['item'],
     data() {
       return {}
-    },
-    computed: {
-      percentage: function () {
-        if(this.item.numFlights === 0) return 'NA'
-        return ((this.item.numCrashes / this.item.numFlights) * 100).toFixed(0) + '%';;
-      }
     },
     filters: {},
     components: {},
