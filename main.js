@@ -17,6 +17,11 @@ app.use(helmet());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+var drone = require('./routes/drone');
+var drones = require('./routes/drones');
+app.use('/api/drone', drone);
+app.use('/api/drones', drones);
+
 app.use((req, res, next) => {
   var err = new Error('Not Found');
   err.status = 404;
